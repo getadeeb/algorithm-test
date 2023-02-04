@@ -16,10 +16,11 @@ class Bm(object):
         self.index = 0
 
     def decide_slide_width(self, c: str) -> int:
-        unicode_ch = -1
-        if ord(c) in self.table:
-            unicode_ch = self.table[ord(c)]
-        slide_width = max(1, self.index - unicode_ch)
+        unicode_ch = ord(c)
+        ch_pos = -1
+        if unicode_ch in self.table:
+            ch_pos = self.table[unicode_ch]
+        slide_width = max(1, self.index - ch_pos)
         return slide_width
 
     def __matchPattern(self, shift: int):
